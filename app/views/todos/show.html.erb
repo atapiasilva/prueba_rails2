@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="col-md-12 text-center">
+    <h3>
+      <%= @todo.name %>
+    </h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h3>
+      <%= image_tag @todo.image %>
+    </h3>
+  </div>
+</div>
+
+<% if @status_complete.count > 0 %>
+  <h3>Ranking 5 usuarios</h3>
+  <ol>
+    <% @status_complete.each do |statu| %>
+      <li>
+        <%= statu.user.name %>
+        <%= image_tag statu.user.image %>
+      </li>
+    <% end %>
+  </ol>
+<% else %>
+  <h3 class="text-center">No se ha completado.</h3>
+<% end %>
